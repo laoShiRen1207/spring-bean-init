@@ -8,4 +8,20 @@ import org.springframework.stereotype.Component;
  */
 @Component("tom")
 public class Cat {
+
+    public Cat() {
+
+    }
+
+    int age;
+
+    public Cat(int a) {
+        this.age = a;
+    }
+
+
+    @Override
+    public String toString() {
+        return "cat:age:" + this.age;
+    }
 }
