@@ -2,6 +2,8 @@ package com.laoshiren.app;
 
 import com.laoshiren.bean.CartoonCatAndMouse;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.AutoConfigurationImportSelector;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
