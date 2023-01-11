@@ -31,7 +31,13 @@ public class LifeCycleBeanPostProcessor implements InstantiationAwareBeanPostPro
         return true;
     }
 
-
+    @Override
+    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
+        if ("lifeCycleBean".equals(beanName)) {
+            log.info("---- 依赖注入阶段 @Autowired @Value @Resource");
+        }
+        return pvs;
+    }
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -49,7 +55,6 @@ public class LifeCycleBeanPostProcessor implements InstantiationAwareBeanPostPro
         return bean;
     }
 
-
     @Override
     public void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException {
         if ("lifeCycleBean".equals(beanName)) {
@@ -57,11 +62,4 @@ public class LifeCycleBeanPostProcessor implements InstantiationAwareBeanPostPro
         }
     }
 
-    @Override
-    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
-        if ("lifeCycleBean".equals(beanName)) {
-            log.info("---- 依赖注入阶段");
-        }
-        return pvs;
-    }
 }
