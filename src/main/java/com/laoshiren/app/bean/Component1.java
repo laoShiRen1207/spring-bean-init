@@ -1,5 +1,6 @@
 package com.laoshiren.app.bean;
 
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,7 @@ import javax.annotation.Resource;
  * @Date 11:00 2023/1/10
  */
 @Slf4j
+@ToString
 public class Component1 {
 
     private Component2 component2;
