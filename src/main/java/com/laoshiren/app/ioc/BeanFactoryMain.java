@@ -44,7 +44,7 @@ public class BeanFactoryMain {
             System.out.println("\t"+beanDefinitionName);
         }
 
-        // 获取Bean 后置处理器 补充了Bean
+        // 获取BeanFactory 后置处理器 补充了Bean
         Map<String, BeanFactoryPostProcessor> beansOfType =
                 beanFactory.getBeansOfType(BeanFactoryPostProcessor.class);
 

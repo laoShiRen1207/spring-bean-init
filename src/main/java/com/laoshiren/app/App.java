@@ -46,8 +46,9 @@ public class App {
         // ApplicationContext
 
         // MessageSource 国际化
-        System.out.println(ctx.getMessage("user.login.password", null, Locale.US));
         System.out.println(ctx.getMessage("user.login.password", null, Locale.CHINA));
+        System.out.println(ctx.getMessage("user.login.password", null, Locale.US));
+
         // ResourceLoader
         // 外部文件 file:
         // classpath:
