@@ -1,4 +1,4 @@
-package com.laoshiren.app.processor.autowired;
+package com.laoshiren.app.processor.bean.autowired;
 
 import com.laoshiren.app.bean.Component1;
 import com.laoshiren.app.bean.Component2;

@@ -1,4 +1,4 @@
-package com.laoshiren.app.processor;
+package com.laoshiren.app.processor.bean;
 
 import com.laoshiren.app.bean.Bean4Properties;
 import com.laoshiren.app.bean.Component1;

@@ -1,5 +1,7 @@
 package com.laoshiren.app.ioc;
 
+import com.laoshiren.app.bean.Bean1;
+import com.laoshiren.app.bean.Config;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,45 +79,4 @@ public class BeanFactoryMain {
          */
 
     }
-
-
-
-    @Configuration
-    static class Config {
-
-        @Bean
-        public Bean1 bean1(){
-            return new Bean1();
-        }
-
-        @Bean
-        public Bean2 bean2(){
-            return new Bean2();
-        }
-
-    }
-
-    @Data
-    @Slf4j
-    static class Bean1 {
-
-        @Autowired
-        private Bean2 bean2;
-
-        public Bean1(){
-            log.info("bean1 构造");
-        }
-
-    }
-
-
-    @Slf4j
-    static class Bean2 {
-
-        public Bean2(){
-            log.info("bean2 构造");
-        }
-
-    }
-
 }
