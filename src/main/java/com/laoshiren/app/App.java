@@ -1,25 +1,29 @@
 package com.laoshiren.app;
 
+import com.laoshiren.app.service.MyService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor;
-import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-
-import java.util.Map;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @Author laoshiren
  * @Date 10:17 2023/1/10
  */
+@EnableAspectJAutoProxy
 @SpringBootApplication
 @Slf4j
 public class App {
 
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        ConfigurableApplicationContext ctx = SpringApplication.run(App.class, args);
-        ctx.close();
+    public static void main(String[] args)  {
+        ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
+
+        MyService bean = context.getBean(MyService.class);
+        log.info("class "+ bean.getClass());
+        bean.foo();
+
+        context.close();
+
     }
 }
