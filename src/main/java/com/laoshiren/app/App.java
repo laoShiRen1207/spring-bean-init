@@ -1,6 +1,6 @@
 package com.laoshiren.app;
 
-import com.laoshiren.app.service.MyService;
+import com.laoshiren.app.service.impl.MyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

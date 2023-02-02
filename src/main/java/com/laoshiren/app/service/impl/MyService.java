@@ -1,5 +1,7 @@
-package com.laoshiren.app.service;
+package com.laoshiren.app.service.impl;
 
+import com.laoshiren.app.aspect.match.Ass;
+import com.laoshiren.app.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -9,8 +11,10 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class MyService {
+public class MyService implements IService {
 
+    @Override
+    @Ass
     public void foo(){
         log.info(" service.foo() ");
     }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyAspect {
 
-    @Before("execution(* com.laoshiren.app.service.MyService.foo())")
+    @Before("execution(* com.laoshiren.app.service.impl.MyService.foo())")
     public void before(){
         log.info(" myAspect before ");
     }
