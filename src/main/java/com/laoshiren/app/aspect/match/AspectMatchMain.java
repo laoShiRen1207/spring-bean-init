@@ -4,7 +4,9 @@ import com.laoshiren.app.service.IService;
 import com.laoshiren.app.service.impl.MyService;
 import lombok.ToString;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
+import org.springframework.aop.support.StaticMethodMatcherPointcut;
 import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
+import org.springframework.core.annotation.MergedAnnotations;
 
 import java.lang.reflect.Method;
 
@@ -32,6 +34,30 @@ public class AspectMatchMain {
                 .getMethodMatcher()
                 .matches(methodFoo, MyService.class);
         System.out.println(matches1);
+
+        StaticMethodMatcherPointcut staticPointcut = new StaticMethodMatcherPointcut() {
+            @Override
+            public boolean matches(Method method, Class<?> targetClass) {
+                // 检查方法上是否加了对应注解
+                boolean present = MergedAnnotations
+                        .from(method)
+                        .isPresent(Ass.class);
+                // 查看类上是否加了对应注解
+                boolean present1 = MergedAnnotations
+                        .from(targetClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY)
+                        .isPresent(Ass.class);
+                return present || present1;
+            }
+        };
+        System.out.println(staticPointcut.matches(A.class.getMethod("a"), A.class));
+    }
+
+}
+class A {
+
+    @Ass
+    public void a(){
+
     }
 
 }
